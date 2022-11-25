@@ -2,9 +2,7 @@
 region = "us-east-1"
 
 namespace = "eg"
-
 stage = "test"
-
 name = "lambda-forwarder-test"
 
 relay_email = "example@example.com"

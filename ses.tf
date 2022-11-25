@@ -21,6 +21,7 @@ resource "aws_ses_receipt_rule" "default" {
 
   lambda_action {
     function_arn = aws_lambda_function.default.arn
+    #function_arn = module.lambda_function.lambda_function_arn
     position     = 2
   }
 

@@ -32,7 +32,7 @@ variable "spf" {
 variable "lambda_runtime" {
   type        = string
   description = "Lambda runtime"
-  default     = "nodejs12.x"
+  default     = "nodejs16.x"
 }
 
 variable "artifact_url" {

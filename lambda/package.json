@@ -1,9 +1,9 @@
 {
-  "name": "aws-lambda-ses-forwarder-example",
+  "name": "aws-lambda-ses-forwarder",
   "version": "1.0.0",
-  "description": "Example implementation of aws-lambda-ses-forwarder.",
+  "description": "Lambda implementation of aws-lambda-ses-forwarder.",
   "main": "index.js",
   "dependencies": {
-    "aws-lambda-ses-forwarder": "^4.0.0"
+    "aws-lambda-ses-forwarder": "^5.0.0"
   }
 }

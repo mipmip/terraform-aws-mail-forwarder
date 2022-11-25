@@ -18,3 +18,5 @@ build-harness
 
 *.iml
 .idea
+.temp.html
+.temp.seed

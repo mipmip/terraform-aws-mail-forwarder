@@ -1,0 +1,36 @@
+module "lambda_function" {
+  source = "terraform-aws-modules/lambda/aws"
+  version = "3.3.1"
+
+  function_name = module.this.id
+  description   = "forward mail via ses"
+  runtime          = var.lambda_runtime
+  handler          = "index.handler"
+
+  source_path = [ format("%s/lambda", abspath(path.module)) ]
+
+  publish = true
+  tracing_mode = var.tracing_config_mode
+  timeout = 15
+
+  environment_variables = {
+    EMAIL_FROM        = var.relay_email
+    EMAIL_BUCKET_NAME = aws_s3_bucket.default.bucket
+    EMAIL_BUCKET_PATH = ""
+    EMAIL_MAPPING     = jsonencode(var.forward_emails)
+  }
+
+  attach_policy_json = true
+  policy_json = data.aws_iam_policy_document.lambda_extra_permissions.json
+}
+
+data "aws_iam_policy_document" "lambda_extra_permissions" {
+  statement {
+    actions   = [
+      "sts:AssumeRole",
+      "ses:SendEmail",
+      "ses:SendRawEmail"
+    ]
+    resources = ["*"]
+  }
+}
