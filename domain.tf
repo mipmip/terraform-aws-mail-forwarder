@@ -20,15 +20,6 @@ resource "aws_route53_record" "mx" {
   # Change to the region in which `aws_ses_domain_identity.default` is created
 }
 
-# Add Route53 TXT record for SPF
-#resource "aws_route53_record" "txt" {
-#  zone_id = data.aws_route53_zone.default.zone_id
-#  name    = aws_ses_domain_identity.default.id
-#  type    = "TXT"
-#  ttl     = "600"
-#  records = [var.spf]
-#}
-
 data "aws_ses_domain_identity" "default" {
   domain = var.domain
 }

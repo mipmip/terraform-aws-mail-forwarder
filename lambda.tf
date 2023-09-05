@@ -1,6 +1,6 @@
 module "send_lambda_function" {
-  source = "terraform-aws-modules/lambda/aws"
-  version = "3.3.1"
+  source = "modules/terraform-aws-modules"
+  #version = "3.3.1"
 
   function_name = module.this.id
   description   = "forward mail via ses"
