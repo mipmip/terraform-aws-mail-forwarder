@@ -1,14 +1,6 @@
 # terraform-mail-forwarder
 
-This module is forked from
-https://github.com/cloudposse/terraform-aws-ses-lambda-forwarder.
-
-**Thanks Cloud Posse!**
-
-The purpose of this fork is to get it working again (latest nodejs version
-etc...) and to remove some functionality other modules could provide.
-
-NOTE: Do not use this in production unless you know what you are doing.
+Forward incoming mail using SES+Lambda
 
 ## Introduction
 
@@ -19,7 +11,7 @@ inbound/outbound capabilities of AWS Simple Email Service (SES) to run a
 Use this module instead of setting up an email server on a dedicated EC2
 instance to handle email redirects. It uses AWS SES to receive email and then
 trigger a Lambda function to process it and forward it on to the chosen
-destination.  This script will allow forwarding emails from any sender to
+destination. This script will allow forwarding emails from any sender to
 verified destination emails (e.g. opt-in).
 
 ## Limitations
@@ -226,3 +218,10 @@ Available targets:
 For additional context, refer to some of these links.
 
 - [aws-lambda-ses-forwarder](https://www.npmjs.com/package/aws-lambda-ses-forwarder) - A Node.js script for AWS Lambda that uses the inbound/outbound capabilities of AWS Simple Email Service (SES) to run a "serverless" email forwarding service.
+
+## History
+
+Forked from
+- https://github.com/mipmip/terraform-aws-mail-forwarder
+- https://github.com/cloudposse/terraform-aws-ses-lambda-forwarder.
+
